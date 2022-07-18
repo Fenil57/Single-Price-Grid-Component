@@ -1,0 +1,128 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --cyan: hsl(179, 61%, 44%);
+  --light-cyan: hsl(179, 47%, 52%);
+  --bright-yellow: hsl(71, 73%, 54%);
+  --light-gray: hsl(203, 44%, 93%);
+  --grayish-blue: hsl(218, 22%, 67%);
+  --white: hsl(0, 0%, 100%);
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-family: "Karla", sans-serif;
+  background-color: var(--light-gray);
+  padding: 1rem;
+}
+
+.card {
+  max-width: 40rem;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, auto);
+  grid-template-areas:
+    "header header"
+    "section-1 section-2";
+}
+
+.article,
+.pricing,
+.review {
+  padding: 2rem;
+}
+
+.article {
+  grid-area: header;
+  background-color: var(--white);
+}
+
+.article .title {
+  color: var(--cyan);
+  margin-bottom: 2rem;
+}
+
+.article .sub-title {
+  color: var(--bright-yellow);
+  margin-bottom: 1.3rem;
+}
+
+.article .info {
+  color: var(--grayish-blue);
+  line-height: 1.8;
+}
+
+.pricing {
+  grid-area: section-1;
+  background-color: var(--cyan);
+  color: var(--light-gray);
+}
+
+.pricing .subscription,
+.pricing .sub-info,
+.review .subscription {
+  margin-bottom: 1.3rem;
+}
+
+.pricing .price {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--light-gray);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 0.65rem;
+}
+
+.price .month {
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: var(--light-gray);
+  opacity: 0.7;
+}
+
+.pricing .sub-info {
+  margin-bottom: 2rem;
+}
+
+.pricing .sign-up {
+  text-decoration: none;
+  display: block;
+  text-align: center;
+  font-size: 1.2rem;
+  background-color: var(--bright-yellow);
+  color: var(--light-gray);
+  padding: 0.7em;
+  border-radius: 5px;
+}
+
+.review {
+  grid-area: section-2;
+  background-color: var(--light-cyan);
+  color: var(--light-gray);
+}
+
+.review .list {
+  list-style: none;
+}
+
+.review .list li {
+  font-size: 0.95rem;
+  padding: 0.2rem;
+}
+
+@media screen and (max-width: 25rem) {
+  .card {
+    display: flex;
+    flex-direction: column;
+  }
+}
